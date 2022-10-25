@@ -108,7 +108,7 @@ if(mysqli_num_rows($res) > 0){
                     <div class="form-content">
 
                         <div class="form-items">
-                            <h2 class="   text-white" >Restablecer Password</h2>
+                            <h2 class="   text-white" >Restablecer Contraseña</h2>
                             <p class="text-center"></p>
                             <div class="page-links text-center">
                             </div>
@@ -133,9 +133,9 @@ if(mysqli_num_rows($res) > 0){
                             </form>
 
                             <?php } else { ?>
-                            <div class="alert alert-warning Sp-3 mb-2 bg-white">Código incorrecto o vencido, Verifica tu coódigo para restablecer tu contraseña
-
-                            <button type="submit" class=" btn btn-primary  text-white"><a href="javascript:history.back()" >regresar</a></button>
+                            <div class="alert alert-warning Sp-3 mb-2 bg-white">Código incorrecto o vencido, Verifica tu código para restablecer tu contraseña 
+                            <div> </div>
+                            <button type="submit" class=" btn btn-primary  text-white"><a href="javascript:history.back()" >Regresar</a></button>
 
                             </div>
 

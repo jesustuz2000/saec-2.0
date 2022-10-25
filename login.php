@@ -88,7 +88,7 @@ if ($_GET['carrera'] == !null) {
                         <p class="text-center"><?php echo $carrera; ?></p>
                         <div class="page-links text-center">
                         <a href="index.php" title="Vovler al inicio"><i class='fas fa-home icon'></i></a>
-                            <a href="" class="active">Login</a><a href="registro.php?carrera=<?php echo $id; ?>">Registrarme</a><a href="olvidopass.php">Olvide contraseña</a>
+                            <a href="" class="active">Login</a><a href="registro.php?carrera=<?php echo $id; ?>">Registrarme</a><a href="olvidopass.php">Olvidé contraseña</a>
                         </div>
                         <form role="form" name="login" action="verificar.php" method="post">
                             <input type="hidden" name="c" value="<?php echo $id; ?>" require>

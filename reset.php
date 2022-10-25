@@ -54,12 +54,12 @@ if (isset($_GET['email']) && isset($_GET['token'])) {
                         <p class="text-center"></p>
                         <div class="page-links text-center">
                             <a href="index.php" title="Vovler al inicio"><i class='fas fa-home icon'></i></a>
-                            <a href="" class="active">Login</a><a href="registro.php?carrera=<?php echo $id; ?>">Registrarme</a>
+                            <!--<a href="" class="active">Login</a><a href="registro.php?carrera=<?php echo $id; ?>">Registrarme</a>-->
                         </div>
                         <form rol="form" action="./php/verificartoken.php" method="POST">
                             <!--<form class="col-3" action="./php/verificartoken.php" method="POST"> -->
 
-                            <h3>Escriba el codigo</h3>
+                            <h3>Escriba el código</h3>
                             <div class="mb-3">
 
                                 <input type="hidden" name="c" value="" require>

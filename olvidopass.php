@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang= "en">
     <head>
@@ -78,21 +79,19 @@
                         <p class="text-center"></p>
                         <div class="page-links text-center">
                         <a href="index.php" title="Vovler al inicio"><i class='fas fa-home icon'></i></a>
-                            <a href="" class="active">Login</a><a href="registro.php?carrera=<?php echo $id; ?>">Registrarme</a>
+                          <!--  <a href="" class="active">Login</a><a href="registro.php?carrera=<?php echo $id; ?>">Registrarme</a>-->
                         </div>
                         <form rol="form" action="./php/restablecer.php" method="POST">
-                                    <h3>Restablecer Contraseña</h3>
+                                    <h3>Restablece tu contraseña</h3>
                                     <div class="mb-3">
                                     <input type="hidden" name="c" value="" require>
                                      <!--   <label for="c" class="form-label">Email</label> -->
                                         <input type="email" class="form-control" id="c" name="email" placeholder="Correo" maxlength="" required>
 
-                                       
-                 
+
                                     </div>
                                              <button type="submit"   class="btn btn-primary" >Enviar Solicitud</button>
-                                
-                                
+
                             </form>
                     </div>
                 </div>

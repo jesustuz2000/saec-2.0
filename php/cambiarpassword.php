@@ -67,10 +67,10 @@ if($p1==$p2){
 
                        <?php if ($correcto) { ?>
                         <div class="alert alert-success Sp-3 mb-2 bg-white" role="alert">
-                            <h4 class="alert-heading ">TODO LISTO!</h4>
-                                <p class="text-success">se a realizado con exito su cambio de contraseña</p>
+                            <h4 class="alert-heading ">Se ha realizado el cambio de contraseña</h4>
+                               
                                  <hr>
-                                     <p class="mb-3 text-success">puede regresar al inicion en el siguiente boton</p>
+                                     <p class="mb-3 text-success">   Ir al inicio</p>
                                 <button type="submit" class=" btn btn-primary  text-white">  <a href="http://localhost/congreso-master/index.php" title="Vovler al inicio"><i class='fas fa-home icon'></i></a></button>
 
                         </div>
@@ -79,8 +79,9 @@ if($p1==$p2){
 
                         <?php } else { ?>
                                 <div class="mb-3">
-                                    <div class="alert alert-warning ">contraseña no coinside
-                                    <button type="submit" class=" btn btn-primary  text-white"><a href="javascript:history.back()" >regresar</a></button>
+                                    <div class="alert alert-warning Sp-3 mb-2 bg-white ">Las contraseñas no coinciden
+                                        <div></div>
+                                    <button type="submit" class=" btn btn-primary  text-white"><a href="javascript:history.back()" >Regresar</a></button>
 
                                 </div>
                         <?php } ?>

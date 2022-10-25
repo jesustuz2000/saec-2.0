@@ -256,7 +256,6 @@ if (isset($_POST['btnsave'])) {
                                 } ?>
                             </select>
 
-                            
 
                             <select name="semestre_grupo" class="selcls">
                                 <?php
@@ -289,21 +288,9 @@ if (isset($_POST['btnsave'])) {
                                 <input ID="txtPassword" type="Password" Class="form-control" name="password" placeholder="Contraseña" minlength="8" maxlength="16" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" required>
                                 <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                                <p> <small>La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito y al menos una mayúscula.</small></p>
-                            
-                            
+
                             </div>
-                            
-                                  
 
-
-
-                                  <!--aqui es la selecion de si pertenece a alguna etnia indigena / -->  
-
-
-                                  <!--aqui es la selecion de si pertenece a alguna etnia indigena / -->  
-
-                                  <!--aqui es la selecion de si pertenece a alguna etnia indigena / -->  
-                            
 
 
 
@@ -319,7 +306,6 @@ if (isset($_POST['btnsave'])) {
                             <?php } ?>
 
 
-                            
                         </form>
                     </div>
                 </div>
