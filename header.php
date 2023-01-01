@@ -22,13 +22,13 @@ while ($row = $contTaller->fetch(PDO::FETCH_OBJ)) {
 $conConcurso = $DB_con->prepare("SELECT instructores.*, concursos.* FROM concursos INNER JOIN instructores ON concursos.id_instructor = instructores.id_instructor WHERE status_instructor = 1 AND id_adminCarrera = :id_adminCarrera");
 $conConcurso->execute(array(':id_adminCarrera' => $_SESSION["id_adminCarrera"]));
 while ($row = $conConcurso->fetch(PDO::FETCH_OBJ)) {
-     $contadorConcursos++;
+    $contadorConcursos++;
 }
 
 $conrConferencias = $DB_con->prepare("SELECT instructores.*, conferencias.* FROM conferencias INNER JOIN instructores ON conferencias.id_instructor = instructores.id_instructor WHERE status_instructor = 1 AND id_adminCarrera = :id_adminCarrera");
 $conrConferencias->execute(array(':id_adminCarrera' => $_SESSION["id_adminCarrera"]));
 while ($row = $conrConferencias->fetch(PDO::FETCH_OBJ)) {
-     $contadorConferencias++;
+    $contadorConferencias++;
 }
 
 // $status = 1;
@@ -90,9 +90,16 @@ while ($row = $conrConferencias->fetch(PDO::FETCH_OBJ)) {
                                         <a href="conferencias.php">Conferencias</a>
                                     </li>';
                                     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 34748a02aed425ae884a842e1982a338db7ed436
                                     ?>
                                     <li class="menu-item curent-menu-item">
                                         <a href="avisos.php">Avisos</a>
+                                    </li>
+                                    <li class="menu-item curent-menu-item">
+                                        <a href="pagar/index.php">Pagar</a>
                                     </li>
                                     <li class="menu-item curent-menu-item">
                                         <a href="perfil.php">Perfil</a>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 if (!isset($_SESSION["id_administrador_carrera"]) || $_SESSION["id_administrador_carrera"] == null) {
     print "<script>window.location='../../../index.php';</script>";
@@ -27,7 +27,10 @@ $consulta = $DB_con->prepare('SELECT * FROM admin_carreras WHERE id_user=:id_use
 $consulta->execute(array(':id_user' => $_SESSION["id_administrador_carrera"]));
 $datosCarrera = $consulta->fetch(PDO::FETCH_ASSOC);
 extract($datosCarrera);
-$uid = $_SESSION["id_administrador_carrera"];
+/*while ($row = $datosCarrera->fetch(PDO::FETCH_OBJ)) {
+    $id_administrador_carrera = $row->id_administrador_carrera;
+}
+*/
 
 ?>
 <!DOCTYPE html>
@@ -49,7 +52,7 @@ $uid = $_SESSION["id_administrador_carrera"];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="app.js"></script>
+    <script src="appAct.js"></script>
 </head>
 
 <body class="nav-fixed">
@@ -90,21 +93,14 @@ $uid = $_SESSION["id_administrador_carrera"];
                         <div class="page-header-content">
                             <h1 class="page-header-title">
                                 <div class="page-header-icon"><i></i></div>
-                                <span>Alumnos</span>
+                                <span>Alumnos Paypal</span>
                             </h1>
-                            <p style="color: white;">Las modificaciones se guardan automáticamente.</p>
-<<<<<<< HEAD
-                            <p><a href="registrar_alumno.php"><button class="btn btn-success" type="button">Registrar nuevo alumno</button></a>
-                            <a href="../../../excel/Excel.php"><button class="btn btn-light" type="button">Reporte de alumnos registrados</button></a></p>
-                        
-=======
-                            <p><a href="registrar_alumno.php"><button class="btn btn-primary" type="button">Registrar nuevo alumno</button></a></p>
+                            <p style="color: white;">Aquí se encuentran todos los alumnos que realizaron si pago mediante Paypal.</p>
 
                             <?php foreach ($datosCarrera as $row) { ?>
                                 <form method="post">
-                                    <button class="btn btn-dark" type="submit" name="activar">Activar Todos los Alumnos</button>
+                                    <button class="btn btn-dark" type="submit" name="activar">Activar</button>
                                     <input type="hidden" name="id_administrador_carrera" value="<?php echo $row['id_administrador_carrera']; ?>">
-
                                 </form>
                             <?php break;
                             } ?>
@@ -112,41 +108,24 @@ $uid = $_SESSION["id_administrador_carrera"];
                             <?php
                             if (isset($_POST['activar'])) {
                                 $uid = $_POST['id_administrador_carrera'];
-                                $sentencia = $DB_con->prepare("UPDATE alumnos SET alumnos.status_alumno = 1 WHERE alumnos.id_adminCarrera=:uid;");
+                                $sentencia = $DB_con->prepare("UPDATE transacciones INNER JOIN ventas on transacciones.id_venta = ventas.id_venta INNER JOIN alumnos on transacciones.id_alumno = alumnos.id_alumno SET alumnos.status_alumno=1 WHERE ventas.status='completo' AND alumnos.id_adminCarrera = :uid");
                                 $sentencia->bindParam(':uid', $uid);
                                 $sentencia->execute();
                             }
                             ?>
-
-                            <?php
-                            $sentencia = $DB_con->prepare("SELECT COUNT(*) AS cont FROM alumnos WHERE status_alumno=1 AND id_adminCarrera =:uid;");
-                            $sentencia->execute(array(':uid' => $datosCarrera["id_adminCarrera"]));
-                            $contador = $sentencia->fetch(PDO::FETCH_ASSOC);
-                            extract($contador);
-                            ?>
-                            <p>Total de alumnos Activados: <?php echo $contador['cont']; ?></p>
-                            <?php
-                            $sentencia = $DB_con->prepare("SELECT COUNT(*) AS cont FROM alumnos WHERE status_alumno=0 AND id_adminCarrera =:uid;");
-                            $sentencia->execute(array(':uid' => $datosCarrera["id_adminCarrera"]));
-                            $contador = $sentencia->fetch(PDO::FETCH_ASSOC);
-                            extract($contador);
-                            ?>
-                            <p>Total de alumnos No Activados: <?php echo $contador['cont']; ?></p>
->>>>>>> 34748a02aed425ae884a842e1982a338db7ed436
                         </div>
                     </div>
                 </div>
                 <div class="container-fluid mt-n10">
                     <div class="card mb-4">
-                        <div class="card-header">Mostrando todos los alumnos inscritos</div>
+                        <div class="card-header">Mostrando todos los alumnos que ya se aprobo su pago.</div>
                         <div class="card-body">
                             <div class="datatable table-responsive">
-                                <div id="lista-alumno">
+                                <div id="lista-activados">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
             </main>
             <footer class="footer mt-auto footer-light">
                 <div class="container-fluid">

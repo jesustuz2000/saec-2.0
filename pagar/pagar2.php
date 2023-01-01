@@ -3,39 +3,7 @@ include 'global/config.php';
 include 'global/conexion.php';
 include 'carrito.php';
 include 'templates/cabecera.php';
-?>
-
-<?php
-$total = 0;
-$SID = session_id();
-$Correo = $_POST['email'];
-
-foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-    $total = $total + $producto['PRECIO'] * $producto['CANTIDAD'];
-}
-
-$sentencia = $pdo->prepare("INSERT INTO `tblVentas` 
-(`ID`, `ClaveTransaccion`, `PaypalDatos`, `Fecha`, `Correo`, `Total`, `status`) VALUES 
-(NULL, :ClaveTransaccion, '', NOW(), :Correo, :Total, 'Pendiente')");
-$sentencia->bindParam(":ClaveTransaccion", $SID);
-$sentencia->bindParam(":Correo", $Correo);
-$sentencia->bindParam(":Total", $total);
-$sentencia->execute();
-$idVenta = $pdo->lastInsertId();
-
-foreach ($_SESSION['CARRITO'] as $indice => $producto) {
-    $sentencia = $pdo->prepare("INSERT INTO `tbldetalleventa` 
-    (`ID`, `IDVENTA`, `IDPRODUCTO`, `PRECIOUNITARIO`, `CANTIDAD`, `DESCARGADO`) VALUES 
-    (NULL, :IDVENTA, :IDPRODUCTO, :PRECIOUNITARIO, :CANTIDAD, '0');
-    ");
-    $sentencia->bindParam(":IDVENTA", $idVenta);
-    $sentencia->bindParam(":IDPRODUCTO", $producto['ID']);
-    $sentencia->bindParam(":PRECIOUNITARIO", $producto['PRECIO']);
-    $sentencia->bindParam(":CANTIDAD", $producto['CANTIDAD']);
-    $sentencia->execute();
-}
-
-// echo '<h3>' . $total . '</h3>';
+$total = 250;
 ?>
 
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
@@ -61,7 +29,7 @@ foreach ($_SESSION['CARRITO'] as $indice => $producto) {
 
 
  <div class="jumbotron text-center">
-     <h1 class="display-4">¡Paso Final!</h1>
+     <h1 class="display-4">¡Activa tu cuenta!</h1>
      <hr class="my-4">
      <p class="lead">Estas a punto de pagar con paypal la cantidad de:
          <h4>$<?php echo number_format($total,2);?></h4>
@@ -69,8 +37,8 @@ foreach ($_SESSION['CARRITO'] as $indice => $producto) {
 
 
      </p>
-     <p>Los productos seran enviados una vez que se procese el pago.</p>
-     <strong>(Para aclaraciones enviar mensaje a: ruben_osmar19@hotmail.com)</strong>
+     <p>Su cuenta será activada inmediatamente una vez que se haya realizado su pago.</p>
+     <strong>Para aclaraciones contactar a: Lucia Esther Martínez (admin@itsva.edu.mx) </strong>
  </div>
 
  
@@ -89,8 +57,8 @@ foreach ($_SESSION['CARRITO'] as $indice => $producto) {
         // Create a PayPal app: https://developer.paypal.com/developer/applications/create
 
         client: {
-            sandbox:   'AYhV2soT85do3DslPH8BvWbR8trqXV_mvRuvbRHbeE8v1Bb1_wwgLXdmu1Wvg_VtfQ-1v9g9QYjljK7D',
-            production: 'AWlVkZH9-9sbXRzWLibzsqyMB-0PzvKTCHKSlhI6fPlObrVubDjF-Gei5RgTRbpH2veKMEsiv3rglioT'
+            sandbox:   'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+            production: 'insert production client id'
         },
 
         // Wait for the PayPal button to be clicked
@@ -101,7 +69,7 @@ foreach ($_SESSION['CARRITO'] as $indice => $producto) {
                     transactions: [
                         {
                             amount: { total: '<?php echo $total;?>', currency: 'MXN' }, 
-                            description:"Compra de productos a Develoteca:$0.01",
+                            description:"Sistema de Administración de Congresos ",
                             custom:"Codigo"
                         }
                     ]
@@ -113,9 +81,9 @@ foreach ($_SESSION['CARRITO'] as $indice => $producto) {
 
         onAuthorize: function(data, actions) {
             return actions.payment.execute().then(function() {
-                window.alert('Pyment complete');
+                window.aler("Pago completado.");
                 console.log(data);
-                 window.location="verificador.php?paymentToken="+data.paymentToken+"&paymentID="+data.paymentID;
+                window.location="activacion.php?paymentToken="+data.paymentToken+"&paymentID="+data.paymentID;
             });
         }
     
@@ -124,5 +92,3 @@ foreach ($_SESSION['CARRITO'] as $indice => $producto) {
 </script>
 
 
-
-<?php include 'templates/pie.php'; ?>

@@ -210,13 +210,15 @@ if (isset($_POST['btnsave'])) {
                                                 <select id="my-select" class="form-control" name="id_instructor">
 
                                                     <?php
-                                                    $instructoresconTalleres = $DB_con->prepare("SELECT * FROM instructores WHERE NOT EXISTS (SELECT * FROM talleres WHERE instructores.id_instructor = talleres.id_instructor)");
+                                                    //$instructoresconTalleres = $DB_con->prepare("SELECT * FROM instructores WHERE NOT EXISTS (SELECT * FROM talleres WHERE instructores.id_instructor = talleres.id_instructor)");
+                                                    $instructoresconTalleres = $DB_con->prepare("SELECT * FROM instructores WHERE id_adminCarrera =:uid;");
+                                                    $instructoresconTalleres->execute(array(':uid' => $datosCarrera["id_adminCarrera"]));
                                                     $instructoresconTalleres->execute();
                                                     while ($row = $instructoresconTalleres->fetch(PDO::FETCH_OBJ)) {
-                                                            echo '<option value="'.$row->id_instructor. '">'.$row->nombre_instructor. ' ' .$row->apellido_instructor. '</option>';
+                                                        echo '<option value="' . $row->id_instructor . '">' . $row->nombre_instructor . ' ' . $row->apellido_instructor . '</option>';
                                                     }
                                                     ?>
-                                                    
+
                                                 </select>
                                             </div>
                                             <div class="form-group">

@@ -9,9 +9,17 @@
             <a class="nav-link" href="../carreras/index.php">
                 <div class="nav-link-icon"><i data-feather="folder"></i></div>Carreras
             </a>
+<<<<<<< HEAD
             <a class="nav-link" href="../../../SISTEMA_ENCUESTAS/administrador/index.php">
                 <div class="nav-link-icon"><i data-feather="folder"></i></div>Encuestas
             </a>
+=======
+
+            <a class="nav-link" href="pagos/index.php">
+                <div class="nav-link-icon"><i data-feather="dollar-sign"></i></div>Pagos
+            </a>
+
+>>>>>>> 34748a02aed425ae884a842e1982a338db7ed436
             <div class="sidenav-menu-heading">Configuración</div>
             <a class="nav-link" href="../correos.php">
                 <div class="nav-link-icon"><i data-feather="folder"></i></div>Correos
