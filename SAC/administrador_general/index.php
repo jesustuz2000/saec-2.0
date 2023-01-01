@@ -32,6 +32,7 @@ if (isset($_SESSION['tiempo'])) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Sistema de Administración de Congresos</title>
+    
     <link href="../../plugins/admin/css\styles.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../../plugins/admin/assets\img\favicon.png">
     <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
@@ -84,73 +85,12 @@ if (isset($_SESSION['tiempo'])) {
                                     </p>
                                     <p class="text-right text-gray-700"><i> - William Arthur Ward</i><br></p>
                                     <a class="btn btn-teal" href="carreras/index.php">Agregar una carrera<i class="ml-1" data-feather="arrow-right"></i></a>
-                                </div>
+                                      </div>
                                 <div class="col d-none d-md-block text-right pt-3"><img class="img-fluid mt-n5" src="../../plugins/admin/assets\img\drawkit\color\drawkit-content-man-alt.svg" style="max-width: 25rem;"></div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="row">
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-blue h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-grow-1">
-                                                <div class="small font-weight-bold text-blue mb-1">Carreras</div>
-                                                <div class="h5">Null</div>
-                                                <div class="text-xs font-weight-bold text-success d-inline-flex align-items-center"><i class="mr-1" data-feather=""></i>
-                                                <a href="tours/index.php">Ver Carreras</a>
-                                            </div>
-                                            </div>
-                                            <div class="ml-2"><i class="far fa-address-book fa-2x text-gray-200"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-purple h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-grow-1">
-                                                <div class="small font-weight-bold text-purple mb-1">Alumnos registrados</div>
-                                                <div class="h5">Null</div>
-                                                <div class="text-xs font-weight-bold text-danger d-inline-flex align-items-center"><i class="mr-1" data-feather=""></i><a href="otros/destinos.php">Ver Alumnos</a></div>
-                                            </div>
-                                            <div class="ml-2"><i class="fas fa-user-graduate fa-2x text-gray-200"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-yellow h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-grow-1">
-                                                <div class="small font-weight-bold text-yellow mb-1">Instructores</div>
-                                                <div class="h5">Null</div>
-                                                <div class="text-xs font-weight-bold text-danger d-inline-flex align-items-center"><i class="mr-1" data-feather=""></i><a href="otros/categorias.php">Ver Instructores</a></div>
-                                            </div>
-                                            <div class="ml-2"><i class="fas fas fa-chalkboard-teacher fa-2x text-gray-200"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 mb-4">
-                                <div class="card border-top-0 border-bottom-0 border-right-0 border-left-lg border-green h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="flex-grow-1">
-                                                <div class="small font-weight-bold text-green mb-1">Talleres</div>
-                                                <div class="h5">Null</div>
-                                                <div class="text-xs font-weight-bold text-success d-inline-flex align-items-center"><i class="mr-1" data-feather=""></i><a href="tours/comentarios_tour.php">Ver Talleres</a></div>
-                                            </div>
-                                            <div class="ml-2"><i class="fas fa-address-book fa-2x text-gray-200"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div> -->
-
+                    
                 </div>
             </main>
             <footer class="footer mt-auto footer-light">

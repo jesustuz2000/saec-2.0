@@ -92,7 +92,9 @@ extract($datosCarrera);
                                 <span>Alumnos</span>
                             </h1>
                             <p style="color: white;">Las modificaciones se guardan automáticamente.</p>
-                            <p><a href="registrar_alumno.php"><button class="btn btn-primary" type="button">Registrar nuevo alumno</button></a></p>
+                            <p><a href="registrar_alumno.php"><button class="btn btn-success" type="button">Registrar nuevo alumno</button></a>
+                            <a href="../../../excel/Excel.php"><button class="btn btn-light" type="button">Reporte de alumnos registrados</button></a></p>
+                        
                         </div>
                     </div>
                 </div>
@@ -106,6 +108,7 @@ extract($datosCarrera);
                             </div>
                         </div>
                     </div>
+                    
             </main>
             <footer class="footer mt-auto footer-light">
                 <div class="container-fluid">

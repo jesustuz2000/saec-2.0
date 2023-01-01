@@ -20,7 +20,7 @@ try {
   $mail->Username   = 'congresosyeventosvalladolid@gmail.com';                     //SMTP username
   $mail->Password   = 'ehnwemstlchwzanj';                               //SMTP password
 
-  //$mail->Username   = 'vanessaguadalupetuzacosta@gmail.com';                     //SMTP username
+                //SMTP username
   //  $mail->Password   = 'axlnehdwkfjpuajg';            
 
   $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
@@ -28,7 +28,7 @@ try {
 
   //Recipients   en este aparatado el $email es del quien escribe la solicitud
 
-  $mail->setFrom('congresosyeventosvalladolid@gmail.com' . 'itsva');     //    jesusreyestuzacosta@gmail.com  Add a recipient
+  $mail->setFrom('congresosyeventosvalladolid@gmail.com' . 'itsva');     //Add a recipient
   $mail->addAddress($email . '');
 
 

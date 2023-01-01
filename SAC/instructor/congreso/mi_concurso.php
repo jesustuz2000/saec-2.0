@@ -222,7 +222,7 @@ if (isset($_GET['delete_id'])) {
                                                             <div class="col text-center">
                                                                 <form action="concurso.php" method="post">
                                                                     <input type="hidden" name="modalidad" value="1" required>
-                                                                    <button class="btn btn-outline-dark"> Selecionar </button>
+                                                                    <button class="btn btn-outline-dark" class="btn btn-primary"> Selecionar </button>
                                                                 </form>
                                                             </div>
                                                         </div>

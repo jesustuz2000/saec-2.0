@@ -204,7 +204,7 @@ $id = $_GET['edit_id'];
                                                         <div class="form-group"><label for="exampleFormControlInput1">Correo</label>
                                                             <input class="form-control form-control-solid" id="exampleFormControlInput1" type="text" name="correo" placeholder="Ejemplo: @itsva.edu.mx">
                                                         </div>
-                                                        <button class="" name="btnsave">Guardar</button>
+                                                        <button class="btn btn-primary" name="btnsave">Guardar</button>
 
                                                     </div>
                                                 </form>
@@ -242,7 +242,7 @@ $id = $_GET['edit_id'];
                                                                 <input class="form-control form-control-solid" id="exampleFormControlInput1" type="text" name="correo" placeholder="Ejemplo: @itsva.edu.mx" value="<?php echo $row->correo; ?>" autofocus="autofocus">
                                                                 <input type="hidden" name="id_correo" value="<?php echo $row->id_correo; ?>">
                                                             </div>
-                                                            <button class="" name="btn_save_updates">Actualizar</button>
+                                                            <button class="btn btn-primary" name="btn_save_updates">Actualizar</button>
                                                         </div>
                                                     </form>
                                                 <?php } ?>

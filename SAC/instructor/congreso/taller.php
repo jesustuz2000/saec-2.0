@@ -351,7 +351,7 @@ if (isset($_POST['btn_save_updates'])) {
                                 </div>
                             </div>
 
-                            <button class="" name="btn_save_updates">Guardar Cambios</button>
+                            <button class="btn btn-success" name="btn_save_updates">Guardar Cambios</button>
 
                         </div>
                     </form>

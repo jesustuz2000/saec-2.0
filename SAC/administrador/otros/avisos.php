@@ -230,7 +230,7 @@ if (isset($_GET['delete_id'])) {
                                                             <label> Caracteres restantes: <span id="contador"></span></label>
                                                             <textarea class="form-control form-control-solid" id="comment" name="descripcion" cols="30" rows="10" maxlength="900"></textarea>
                                                         </div>
-                                                        <button class="" name="btnsave">Guardar</button>
+                                                        <button class="btn btn-success " name="btnsave">Guardar</button>
 
                                                     </div>
                                                 </form>
@@ -269,8 +269,8 @@ if (isset($_GET['delete_id'])) {
                                                                 <label> Caracteres restantes: <span id="contador"></span></label>
                                                             <textarea class="form-control form-control-solid" id="comment" name="descripcion" cols="30" rows="10" maxlength="900"><?php echo $row->descripcion; ?></textarea>
                                                             </div>
-                                                            <button class="" name="btn_save_updates">Actualizar</button>
-                                                            <a href="avisos.php"><input type="button" value="Cancelar"></a>
+                                                            <button class="btn btn-info" name="btn_save_updates">Actualizar</button>
+                                                            <a href="avisos.php"><input  class="btn btn-danger" type="button" value="Cancelar"></a>
                                                         </div>
                                                     </form>
                                                 <?php } ?>

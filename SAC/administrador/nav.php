@@ -15,6 +15,9 @@
                     <a class="nav-link" href="congreso/index.php">Talleres</a>
                     <a class="nav-link" href="congreso/concursos.php">Concursos</a>
                     <a class="nav-link" href="congreso/conferencias.php">Conferencias</a>
+                    <a class="nav-link" href="../../SISTEMA_ENCUESTAS/admin_carrera/index.php">Encuestas</a>
+                    <a class="nav-link" href="../../certi">Certificado</a>
+                     
                 </nav>
             </div>
 

@@ -110,11 +110,11 @@ if (isset($_GET['activarRegistro'])) {
                                     if ($datosRegistro['estado_registro'] == 0) {
                                         echo '<input type="submit" class="btn btn-danger" name="activarRegistro" value="Desactivado">';
                                     } else {
-                                        echo '<input type="submit"  name="desactivarRegistro" value="Activo">';
+                                        echo '<input type="submit" class="btn btn-success" name="desactivarRegistro" value="Activo">';
                                     }
                                     ?>
                                 </p>
-                                <p><a href="registrar_instructor.php"><button class="btn btn-primary" type="button">Registrar nuevo instructor</button></a></p>
+                                <p><a href="registrar_instructor.php"><button class="btn btn-primary" type="button">Registrar nuevo instructor</button></a><a href="../../../excel/Excelint.php"><button class="btn btn-light" type="button">Reporte de instructores</button></a></p>
                             </form>
                         </div>
                     </div>

@@ -47,7 +47,7 @@ if (isset($_POST['btn_save_updates'])) {
     $semestre_grupo = $_POST['semestre_grupo'];
     $id_semestre_grupo = $_POST['id_semestre_grupo'];
 
-    $stmt = $DB_con->prepare('UPDATE semestre_grupo SET semestre_grupo=:semestre_grupo WHERE id_semestre_grupo=:id_semestre_grupo');
+    $stmt = $DB_con->prepare('UPDATE C SET semestre_grupo=:semestre_grupo WHERE id_semestre_grupo=:id_semestre_grupo');
     $stmt->bindParam(':semestre_grupo', $semestre_grupo);
     $stmt->bindParam(':id_semestre_grupo', $id_semestre_grupo);
     if ($stmt->execute()) {
@@ -62,10 +62,12 @@ if (isset($_POST['btn_save_updates'])) {
     }
 }
 if (isset($_GET['delete_id'])) {
-    $stmt_delete = $DB_con->prepare('DELETE FROM correos WHERE id_correo =:uid');
+
+   
+    $stmt_delete = $DB_con->prepare('DELETE FROM semestre_grupo WHERE id_semestre_grupo =:uid');
     $stmt_delete->bindParam(':uid', $_GET['delete_id']);
     $stmt_delete->execute();
-    header("Location: correos.php");
+    header("Location: semestre_grupo.php");
 }
 
 $id = $_GET['edit_id'];
@@ -133,6 +135,8 @@ $id = $_GET['edit_id'];
                         </div>
                     </div>
                 </div>
+
+                
                 <div class="container-fluid mt-n10">
                     <div class="card mb-4">
                         <div class="card-header">Lista de semestres y grupos</div>
@@ -165,8 +169,8 @@ $id = $_GET['edit_id'];
                                             </tr>
                                             <script type="text/javascript">
                                                 function confirmarRegistro<?php echo $row->id_semestre_grupo; ?>() {
-                                                    if (window.confirm("¿Seguro que desea eliminar este correo?\nEsto eliminara todo lo relacionado con este correo, incluyedo las cuentas relacionadas a esta") == true) {
-                                                        window.location = "correos.php?delete_id=<?php echo $row->id_semestre_grupo; ?>";
+                                                    if (window.confirm("¿Seguro que desea eliminar este grupo?\nEsto eliminara todo lo relacionado con este correo, incluyedo las cuentas relacionadas a esta") == true) {
+                                                        window.location = "semestre_grupo.php?delete_id=<?php echo $row->id_semestre_grupo; ?>";
                                                     }
                                                 }
                                             </script>
@@ -205,7 +209,7 @@ $id = $_GET['edit_id'];
                                                         <div class="form-group"><label for="exampleFormControlInput1">Semestre y Grupo</label>
                                                             <input class="form-control form-control-solid" id="exampleFormControlInput1" type="text" name="semestre_grupo" placeholder="Ejemplo: 1° A">
                                                         </div>
-                                                        <button class="" name="btnsave">Guardar</button>
+                                                        <button class="btn btn-primary" name="btnsave">Guardar</button>
 
                                                     </div>
                                                 </form>
@@ -243,7 +247,7 @@ $id = $_GET['edit_id'];
                                                                 <input class="form-control form-control-solid" id="exampleFormControlInput1" type="text" name="semestre_grupo" placeholder="Ejemplo: 1° A" value="<?php echo $row->semestre_grupo; ?>" autofocus="autofocus">
                                                                 <input type="hidden" name="id_semestre_grupo" value="<?php echo $row->id_semestre_grupo; ?>">
                                                             </div>
-                                                            <button class="" name="btn_save_updates">Actualizar</button>
+                                                            <button class="btn btn-primary" name="btn_save_updates">Actualizar</button>
                                                         </div>
                                                     </form>
                                                 <?php } ?>

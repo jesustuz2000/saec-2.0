@@ -149,7 +149,7 @@ if (isset($_GET['delete_id'])) { //id del instructor
                                 <div class="page-header-icon"><i data-feather=""></i></div>
                                 <span>Conferencias <p>Las conferencias serán publicados una vez que active la cuenta del instructor</p></span>
                             </h1>
-                            <p><a href="nueva_conferencia.php"><button class="btn btn-primary" type="button">Agregar Conferencia</button></a></p>
+                            <p><a href="nueva_conferencia.php"><button class="btn btn-primary" type="button">Agregar Conferencia</button></a><a href="../../../excel/Excelconferencia.php"><button class="btn btn-light" type="button">Reporte de conferencia</button></a></p>
                         </div>
                     </div>
                 </div>
@@ -204,14 +204,14 @@ if (isset($_GET['delete_id'])) { //id del instructor
                                                             <div class="desc display-flex">
                                                                 <form action="conferencia.php" method="GET">
                                                                     <input type="hidden" name="id" value="<?php echo $row->id_instructor; ?>">
-                                                                    <button name="editar">Editar</button>
+                                                                    <button class="btn btn-warning btn-sm mb1 black bg-yellow"  name="editar">Editar</button>
                                                                 </form>
 
-                                                                <button Onclick="confirmarRegistro<?php echo $row->id_instructor; ?>();">Eliminar</button>
+                                                                <button  class="btn btn-danger btn-sm mb1 bg-red " Onclick="confirmarRegistro<?php echo $row->id_instructor; ?>();">Eliminar</button>
 
                                                                 <form action="lista_alumnos.php" method="POST">
                                                                     <input type="hidden" name="lista_conferencia" value="<?php echo $row->id_conferencia; ?>">
-                                                                    <button>Ver lista</button>
+                                                                    <button class="btn btn-primary  btn-sm  mb1 bg-blue">Ver lista</button>
                                                                 </form>
 
                                                             </div>

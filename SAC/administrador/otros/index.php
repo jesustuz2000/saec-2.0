@@ -158,10 +158,10 @@ if (isset($_POST['btn_save_updates'])) {
                                 <div class="form-group">
                                     <img src="../../../images/logos/<?php echo $datos['imagen'] ?>" alt="logo_carrera" width="50%">
                                     <br>
-                                    <input class="input-group" type="file" name="user_image" accept="image/*" required />
+                                    <input class="input-group"  type="file"  name="user_image"  accept="image/*" required />
                                     <br>
                                 </div>
-                                <button name="btn_save_updates">Guardar cambios</button>
+                                <button class="btn btn-success  " name="btn_save_updates">Guardar cambios</button>
                             </form>
                         </div>
                     </div>

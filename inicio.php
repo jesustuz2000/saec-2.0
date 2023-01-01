@@ -381,14 +381,7 @@ if (isset($id_concurso)) {
                     </div>
                 </div>
                 <br>
-                <!-- <article class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 item">
-                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                        <strong>asd</strong>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </article> -->
+                
             </div>
         </section>
 

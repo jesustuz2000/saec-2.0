@@ -142,7 +142,7 @@ if (isset($_GET['delete_id'])) {
                                 <div class="page-header-icon"><i data-feather=""></i></div>
                                 <span>Concursos <p>Los concursos serán publicados una vez que active la cuenta del instructor</p></span>
                             </h1>
-                            <p><a href="elegir_concurso.php"><button class="btn btn-primary" type="button">Agregar Concurso</button></a></p>
+                            <p><a href="elegir_concurso.php"><button class="btn btn-primary" type="button">Agregar Concurso</button></a><a href="../../../excel/Excelconcurso.php"><button class="btn btn-light" type="button">Reporte de concursos</button></a></p>
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@ if (isset($_GET['delete_id'])) {
                                                         <div class="item-thumb"> <a> <img src="../../../images/concursos/<?php echo $row->imagen_concurso; ?>" alt=""> </a> </div>
                                                         <div class="info">
                                                             <h3 class="title"> <a><?php echo $row->nombre_concurso; ?></a> </h3>
-                                                            <p>Instructor: <?php echo $row->nombre_instructor . ' ' . $row->apellido_instructor ?></p>
+                                                            <p>Responsable: <?php echo $row->nombre_instructor . ' ' . $row->apellido_instructor ?></p>
                                                             <?php
                                                             $contadorEquipos['contEquipos']; //total equipos
                                                             if ($row->modalidad == 1) { //individual
@@ -225,20 +225,20 @@ if (isset($_GET['delete_id'])) {
                                                                         <form action="concurso.php" method="GET">
                                                                             <input type="hidden" name="id" value="<?php echo $row->id_instructor; ?>">
                                                                             <input type="hidden" name="modalidad" value="<?php echo $row->modalidad; ?>">
-                                                                            <button name="editar">Editar</button>
+                                                                            <button name="editar"  class="btn btn-warning btn-sm mb1 black bg-yellow">Editar</button>
                                                                         </form>
 
-                                                                        <button Onclick="confirmarRegistro<?php echo $row->id_instructor; ?>();">Eliminar</button>
+                                                                        <button  class="btn btn-danger btn-sm mb1 bg-red " Onclick="confirmarRegistro<?php echo $row->id_instructor; ?>();">Eliminar</button>
                                                                         <?php if ($row->modalidad == 1) { ?>
                                                                             <form action="lista_alumnos.php" method="POST">
                                                                                 <input type="hidden" name="lista_concurso" value="<?php echo $row->id_concurso; ?>">
-                                                                                <button>Ver lista</button>
+                                                                                <button class="btn btn-primary  btn-sm  mb1 bg-blue">Ver lista</button>
                                                                             </form>
                                                                         <?php }
                                                                         if ($row->modalidad == 2) { ?>
                                                                             <form action="lista_alumnos.php" method="POST">
                                                                                 <input type="hidden" name="lista_concurso_grupal" value="<?php echo $row->id_concurso; ?>">
-                                                                                <button>Ver lista</button>
+                                                                                <button class="btn btn-primary  btn-sm  mb1 bg-blue">Ver lista</button>
                                                                             </form>
                                                                         <?php } ?>
 

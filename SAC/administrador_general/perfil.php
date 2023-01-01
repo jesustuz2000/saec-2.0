@@ -247,7 +247,7 @@ if (isset($_POST['contra'])) {
                                     <label for="exampleFormControlSelect1">Usuario</label>
                                     <input class="form-control" type="text" name="correo" placeholder="Usuario del administrador" maxlength="70" value="<?php echo $datos['correo_user']; ?>" required>
                                 </div>
-                                <button name="usuario">Actualizar</button>
+                                <button class="btn btn-primary" name="usuario">Actualizar</button>
                             </form>
                         </div>
                     </div>
@@ -268,7 +268,7 @@ if (isset($_POST['contra'])) {
                                     <input type="password" class="form-control" name="pass2" minlength="8" maxlength="16" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" required>
                                     <p> <small>Su nueva contraseña debe tener entre 8 y 16 caracteres, al menos un dígito y al menos una mayúscula.</small></p>
                                 </div>
-                                <input type="submit" name="contra" value="Actualizar" />
+                                <input  class="btn btn-primary" type="submit" name="contra" value="Actualizar" />
                             </form>
                         </div>
                     </div>

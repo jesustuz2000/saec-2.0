@@ -44,7 +44,7 @@ if (isset($_GET['email']) && isset($_GET['token'])) {
             <div class="img-holder">
                 <div class="bg"></div>
                 <div class="info-holder">
-                    <img src="images/logos/1204182.jpg" alt="logos">
+                    <img src="images/logos/1401424.jpg" alt="logos">
                 </div>
             </div>
             <div class="form-holder">

@@ -10,6 +10,10 @@
                 <div class="nav-link-icon"><i data-feather="folder"></i></div>Carreras
             </a>
 
+            <a class="nav-link" href="../../SISTEMA_ENCUESTAS/administrador/index.php">
+                <div class="nav-link-icon"><i data-feather="folder"></i></div>Encuestas
+            </a>
+            
             <div class="sidenav-menu-heading">Configuración</div>
             <a class="nav-link" href="correos.php">
                 <div class="nav-link-icon"><i data-feather="folder"></i></div>Correos

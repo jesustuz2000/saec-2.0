@@ -274,7 +274,7 @@ if (isset($_POST['contra'])) {
                                     <label for="exampleFormControlSelect1">Clave</label>
                                     <input type="text" class="form-control" id="exampleFormControlSelect1" name="clave" value="<?php echo $datos['clave']; ?> " maxlength="20" required>
                                 </div>
-                                <button name="datos">Actualizar</button>
+                                <button class="btn btn-primary" name="datos">Actualizar</button>
                             </form>
                         </div>
                     </div>
@@ -294,7 +294,7 @@ if (isset($_POST['contra'])) {
                                                                                                                                 }
                                                                                                                                 echo ')"'; ?> maxlength="70" value="<?php echo $datos['correo_user']; ?>" required>
                                 </div>
-                                <button name="usuario">Actualizar</button>
+                                <button class="btn btn-primary" name="usuario">Actualizar</button>
                             </form>
                         </div>
                     </div>
@@ -316,7 +316,7 @@ if (isset($_POST['contra'])) {
                                     <input type="password" class="form-control" name="pass2" minlength="8" maxlength="16" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" required>
                                     <p> <small>Su nueva contraseña debe tener entre 8 y 16 caracteres, al menos un dígito y al menos una mayúscula.</small></p>
                                 </div>
-                                <input type="submit" name="contra" value="Actualizar" />
+                                <input type="submit" class="btn btn-primary" name="contra" value="Actualizar" />
                             </form>
                         </div>
                     </div>

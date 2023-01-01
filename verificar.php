@@ -25,13 +25,13 @@ try {
                $id_user = $registro['id_user'];
                $id_rol = $registro['id_rol'];
             } else {
-               print "<script>window.location='login.php?carrera=$carrera';</script>";
+               print "<script>window.location='dangerlogin.php';</script>";
 
             }
          }
          // Redireccionamiento
          if ($id_user == 0) {
-            print "<script>window.location='login.php?carrera=$carrera';</script>";
+            print "<script>window.location='dangerlogin.php';</script>";
          } elseif ($id_rol == 1) {
             session_start();
             $_SESSION["id_administrador_general"] = $id_user;

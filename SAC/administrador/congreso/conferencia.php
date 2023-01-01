@@ -253,8 +253,8 @@ if (isset($_POST['btn_save_updates'])) {
                                 </div>
                             </div>
                         </div>
-                        <button class="" name="btn_save_updates">Guardar Cambios</button>
-                        <a href="conferencias.php"><input type="button" value="Cancelar"></a>
+                        <button class="btn btn-success" name="btn_save_updates">Guardar Cambios</button>
+                        <a href="conferencias.php"><input type="button"  class ="btn btn-danger" value="Cancelar"></a>
                     </div>
                 </form>
             </main>

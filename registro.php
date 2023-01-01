@@ -43,15 +43,16 @@ if (isset($_POST['btnsave'])) {
     $matricula = $_POST['matricula'];
 
     //grupo_etnico y promedio lenguaje
-    $grupo_etnico =$_POST['grupo_etnico'];
-    $promediolengua =$_POST['promediolengua'];
+    $grupo_etnico = $_POST['grupo_etnico'];
+    $promediolengua = $_POST['promediolengua'];
 
 
     $semestre_grupo = $_POST['semestre_grupo'];
     $id_adminCarrera = $id; //id de la carrera
     $id_rol = 4; //rol alumno
     $status_alumno = 0; //Enviamos como no pagado
-
+    $idrol = 1; //rol alumno
+    $est=1;
     $comentarios = null;
     $id_taller = null;
     $id_concurso = null;
@@ -85,6 +86,35 @@ if (isset($_POST['btnsave'])) {
             $result->execute();
             $lastId = $DB_con->lastInsertId();
 
+            $passw = 123456; //rol alumn23456o
+
+            $sql = 'INSERT INTO tm_usuario(usu_id, usu_nom, usu_apep, usu_correo,rol_id, est) VALUES(:id_user,:nombre_alumno,:apellido_alumno,:correo_user, :idrol, :est)';
+            $result = $DB_con->prepare($sql);
+            $result->bindValue(':id_user', $lastId, PDO::PARAM_INT);
+            $result->bindValue(':nombre_alumno', $nombre_alumno, PDO::PARAM_STR);
+            $result->bindValue(':apellido_alumno', $apellido_alumno, PDO::PARAM_STR);
+            $result->bindValue(':correo_user', $correo_user, PDO::PARAM_STR);
+            
+            $result->bindValue(':idrol', $idrol, PDO::PARAM_INT);
+            $result->bindValue(':est', $est, PDO::PARAM_INT);
+            $result->execute();
+            $lastId = $DB_con->lastInsertId();
+
+            // tabla usuarios de la tabla de encustas
+            $sql = 'INSERT INTO usuarios(id_usuario, clave, nombres, apellidos, email, matricula, semestre_grupo, id_tipo_usuario) VALUES(:id_user,:password,:nombre_alumno,:apellido_alumno,:correo_user,:matricula ,:semestre_grupo,:id_rol)';
+            $result = $DB_con->prepare($sql);
+            
+            $result->bindValue(':id_user', $lastId, PDO::PARAM_STR);
+            $result->bindValue(':password', $password, PDO::PARAM_STR);
+            $result->bindValue(':nombre_alumno', $nombre_alumno, PDO::PARAM_STR);
+            $result->bindValue(':apellido_alumno', $apellido_alumno, PDO::PARAM_STR);
+            $result->bindValue(':correo_user', $correo_user, PDO::PARAM_STR);
+            $result->bindValue(':matricula', $matricula, PDO::PARAM_STR);
+            $result->bindValue(':semestre_grupo', $semestre_grupo, PDO::PARAM_STR);
+            $result->bindValue(':id_rol', $id_rol, PDO::PARAM_INT);
+            $result->execute();
+            
+
             // tabla alumnos
             $sql = 'INSERT INTO alumnos(nombre_alumno,apellido_alumno,matricula,semestre_grupo,status_alumno,comentarios,id_user,id_adminCarrera,id_taller,id_concurso,id_equipo,grupo_etnico,promediolengua) VALUES(:nombre_alumno, :apellido_alumno, :matricula, :semestre_grupo, :status_alumno, :comentarios, :id_user, :id_adminCarrera, :id_taller, :id_concurso, :id_equipo, :grupo_etnico, :promediolengua)';
             $result = $DB_con->prepare($sql);
@@ -100,7 +130,7 @@ if (isset($_POST['btnsave'])) {
             $result->bindValue(':id_taller', $id_taller, PDO::PARAM_INT);
             $result->bindValue(':id_concurso', $id_concurso, PDO::PARAM_INT);
             $result->bindValue(':id_equipo', $id_equipo, PDO::PARAM_INT);
-//base de dato creada para los gripos etnicos y promedio lengua
+            //base de dato creada para los grupos etnicos y promedio lengua
             $result->bindValue(':grupo_etnico', $grupo_etnico, PDO::PARAM_STR);
             $result->bindValue(':promediolengua', $promediolengua, PDO::PARAM_STR);
 
@@ -219,9 +249,9 @@ if (isset($_POST['btnsave'])) {
                             <input class="form-control" type="text" name="apellidos" placeholder="Apellidos" pattern="[A-Za-z\s]+" maxlength="40" required>
                             <input class="form-control" type="number" name="matricula" placeholder="Matrícula" pattern="[0-9]+" min="8" maxlength="8" required>
                             <!-- <input class="form-control" type="file" name="matricula" placeholder="Matricula" accept="image/pdf" required> -->
-                           
+
                             <!--se agrego en el formulario el grupo etnico seleccion -->
-                           
+
                             <select name="grupo_etnico" class="selcls">
                                 <?php
                                 $grupo_etnico = $DB_con->prepare("SELECT * FROM grupo_etnico ORDER BY id_grupo_etnico ASC");
@@ -238,7 +268,7 @@ if (isset($_POST['btnsave'])) {
                                     }
                                 } ?>
                             </select>
-                             <!-- se agrego en el formulario el promedio  seleccion -->
+                            <!-- se agrego en el formulario el promedio  seleccion -->
                             <select name="promediolengua" class="selcls">
                                 <?php
                                 $promediolengua = $DB_con->prepare("SELECT * FROM promediolengua ORDER BY id_promediolengua ASC");
@@ -248,7 +278,7 @@ if (isset($_POST['btnsave'])) {
                                         echo '<option selected>';
                                         echo $row->promediolengua;
                                         echo '</option>';
-                                    } else {
+                                    } else {    
                                         echo '<option>';
                                         echo $row->promediolengua;
                                         echo '</option>';
@@ -273,21 +303,21 @@ if (isset($_POST['btnsave'])) {
                                     }
                                 } ?>
                             </select>
-                            
-                            
-                            <input class="form-control"  type="email" name="email" placeholder="Correo Institucional" <?php
-                                                                                                                                   $correo = $DB_con->prepare("SELECT * FROM correos");
-                                                                                                                                    $correo->execute();
-                                                                                                                                    echo 'pattern="[a-z0-9|.]+(';
-                                                                                                                                    while ($row2 = $correo->fetch(PDO::FETCH_OBJ)) {
-                                                                                                                                        echo $row2->correo;
-                                                                                                                                        echo '|';
-                                                                                                                                    }
-                                                                                                                                    echo ')"'; ?> maxlength="70" required>
+
+
+                            <input class="form-control" type="email" name="email" placeholder="Correo Institucional" <?php
+                                                                                                                        $correo = $DB_con->prepare("SELECT * FROM correos");
+                                                                                                                        $correo->execute();
+                                                                                                                        echo 'pattern="[a-z0-9|.]+(';
+                                                                                                                        while ($row2 = $correo->fetch(PDO::FETCH_OBJ)) {
+                                                                                                                            echo $row2->correo;
+                                                                                                                            echo '|';
+                                                                                                                        }
+                                                                                                                        echo ')"'; ?> maxlength="70" required>
                             <div class="input-group">
                                 <input ID="txtPassword" type="Password" Class="form-control" name="password" placeholder="Contraseña" minlength="8" maxlength="16" pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$" required>
                                 <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                               <p> <small>La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito y al menos una mayúscula.</small></p>
+                                <p> <small>La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito y al menos una mayúscula.</small></p>
 
                             </div>
 

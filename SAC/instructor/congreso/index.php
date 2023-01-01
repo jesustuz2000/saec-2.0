@@ -204,10 +204,11 @@ if (isset($_GET['delete_id'])) {
                                 <span>Mi Taller <p> <i class='far fa-eye'></i> Vista previa</p></span>
                             </h1>
                             <br>
-                            <a href="taller.php"><button>Editar</button></a>
-                            <button Onclick="confirmarRegistro<?php echo $datosInstructor['id_instructor']; ?>();">Eliminar</button>
+                            <a href="taller.php"><button  class="btn btn-primary" type="button">Editar</button></a>
+                            <button Onclick="confirmarRegistro<?php echo $datosInstructor['id_instructor']; ?>();" class ="btn btn-danger">Eliminar</button>
+                            <p> </p>
                             <form action="../lista.php" method="post">
-                                <button  name="lista_taller"> Ver lista </button>
+                                <button  name="lista_taller" class="btn btn-light"> Ver lista </button>
                             </form>
 
                             <script type="text/javascript">

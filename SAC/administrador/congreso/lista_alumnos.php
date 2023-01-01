@@ -132,6 +132,8 @@ if (isset($_POST['lista_taller'])) {
                             <?php if (isset($_POST['lista_concurso_grupal'])) {
                                 echo '<a target="_blank" href="imprimir_lista_equipos.php?'.$tipo.'"><button>Imprimir</button></a>';
                             }else {
+
+                                echo '<a href="../../../excel/hello.php"><button class="btn btn-light" type="button">Reporte de talleres</button></a>';
                                 echo '<a target="_blank" href="imprimir_lista.php?'.$tipo.'"><button>Imprimir</button></a>';
                             }?>
                            
@@ -206,7 +208,7 @@ if (isset($_POST['lista_taller'])) {
                                                     <td> <?php echo $rowLista->matricula; ?> </td>
                                                     <td> <?php echo $rowLista->semestre_grupo; ?> </td>
                                                     <td>
-                                                        <button class="btn btn-datatable btn-icon btn-transparent-dark" id="eliminar_t" data-id="<?php echo $rowLista->id_alumno; ?>"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-datatable btn-icon btn-transparent-dark" id="eliminar_t" data-id="<?php echo $rowLista->id_taller; ?>"><i class="fas fa-trash"></i></button>
                                                     </td>
                                                 </tr>
                                             <?php }  ?>

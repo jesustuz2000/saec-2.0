@@ -13,7 +13,7 @@ if (isset($_SESSION['tiempo'])) {
     if ($vida_session > $inactivo) {
         session_unset();
         session_destroy();
-        header("Location: ../../index");
+        header("Location: ../../../../administrador_general/index");
         exit();
     } else {  // si no ha caducado la sesion, actualizamos
         $_SESSION['tiempo'] = time();
@@ -149,14 +149,14 @@ if (isset($_GET['delete_id'])) {
                                                 <div class="info">
                                                     <hr>
                                                     <a href="session.php?id_carrera_admin=<?php echo $row->id_adminCarrera; ?>" target="_blank">
-                                                        <button>Administrar</button>
+                                                        <button class="btn btn-primary btn-sm  mb1 bg-blue">Administrar</button>
                                                     </a>
                                                     
                                                     <a href="editarCarrera.php?edit_id=<?php echo $row->id_adminCarrera; ?>">
-                                                        <button>Editar</button>
+                                                        <button class="btn btn-warning btn-sm mb1 black bg-yellow">Editar</button>
                                                     </a>
 
-                                                    <button Onclick="confirmarRegistro<?php echo $row->id_adminCarrera; ?>();">Eliminar</button>
+                                                    <button class="btn btn-danger btn-sm mb1 bg-red " Onclick="confirmarRegistro<?php echo $row->id_adminCarrera; ?>();">Eliminar</button>
 
                                                     <script type="text/javascript">
                                                         function confirmarRegistro<?php echo $row->id_adminCarrera; ?>() {

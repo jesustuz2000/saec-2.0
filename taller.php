@@ -340,13 +340,20 @@ include('SAC/Conexion.php');
                                         <a href='taller.php?i=<?php echo $rowT->id_taller; ?>'>
                                             <span>Siguiente Taller</span><i class="fa fa-angle-right"></i>
                                             <h4 class="course-tab-title"><?php echo $rowT->nombre_taller; ?></h4>
+
                                         </a>
                                     </div>
                                 <?php
                                 }
                                 ?>
+                                
                             </div>
+                            <form rol="form" action="SISTEMA_ENCUESTAS/usuario/index.php" method="POST"> 
+                        <button type="submit" class="btn btn-primary">encuesta de servicio</button>
+                        
+                        </form>
                         </div>
+                       
                 </div>
 
         </section>

@@ -27,11 +27,12 @@ if (isset($_SESSION["id_alumno"])) {
     $consultaAlumno->execute(array(':id_user' => $_SESSION["id_alumno"]));
     $rowAlumnos = $consultaAlumno->fetch(PDO::FETCH_ASSOC);
     extract($rowAlumnos);
+   
 
-    $consultaAlumno = $DB_con->prepare('SELECT admin_carreras.*, logos.* FROM admin_carreras INNER JOIN logos ON admin_carreras.id_imagen = logos.id_imagen');
-    $consultaAlumno->execute(array(':id_user' => $_SESSION["id_alumno"]));
-    $datosLogo = $consultaAlumno->fetch(PDO::FETCH_ASSOC);
-    extract($datosLogo);
+  //  $consultaAlumno = $DB_con->prepare('SELECT admin_carreras.*, logos.* FROM admin_carreras INNER JOIN logos ON admin_carreras.id_imagen = logos.imagen WHERE admin_carreras.id_imagen =:imagen');
+  //  $consultaAlumno->execute(array(':imagen' => $_SESSION["id_alumno"],));
+    //$datosLogo = $consultaAlumno->fetch(PDO::FETCH_ASSOC);
+   // extract($datosLogo);
 
 }
 
@@ -49,7 +50,7 @@ if (isset($_POST['datos'])) {
 
         $DB_con->commit();
         // echo 'Datos insertados';
-        header("Location: perfil");
+        header("Location: perfil.php");
     } catch (PDOException $e) {
         // si ocurre un error hacemos rollback para anular todos los insert
         $DB_con->rollback();
@@ -69,7 +70,7 @@ if (isset($_POST['usuario'])) {
 
         $DB_con->commit();
         // echo 'Datos insertados';
-        header("Location: perfil");
+        header("Location: perfil.php");
     } catch (PDOException $e) {
         // si ocurre un error hacemos rollback para anular todos los insert
         $DB_con->rollback();
@@ -106,7 +107,7 @@ if (isset($_POST['contra'])) {
 
                     $DB_con->commit();
                     // echo 'Datos insertados';
-                    header("Location: perfil");
+                    header("Location: perfil.php");
                     print "<script>alert('Contraseña Actulizada');</script>";
                 } catch (PDOException $e) {
                     // si ocurre un error hacemos rollback para anular todos los insert
@@ -262,7 +263,7 @@ if (isset($_POST['contra'])) {
             <div class="img-holder">
                 <div class="bg"></div>
                 <div class="info-holder">
-                    <img src="images/logos/<?php echo $datosLogo['imagen']; ?>" alt="Logo">
+                    <img src="images/74230.png" alt="Logo">
                 </div>
             </div>
             <div class="form-holder">
@@ -311,7 +312,7 @@ if (isset($_POST['contra'])) {
                                                                                                                                     }
                                                                                                                                     echo ')"'; ?> maxlength="70" required>
                             <div class="form-button">
-                                <button id="submit" name="usuario" type="submit" class="ibtn">Actulizar</button>
+                                <button id="submit" name="usuario" type="submit" class="ibtn">Actualizar</button>
                             </div>
                         </form>
                         <hr style="background: #fff;">

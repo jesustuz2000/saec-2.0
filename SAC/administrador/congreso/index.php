@@ -149,7 +149,7 @@ if (isset($_GET['delete_id'])) { //id del taller
                                 <div class="page-header-icon"><i data-feather=""></i></div>
                                 <span>Talleres <p>Los talleres serán publicados una vez que active la cuenta del instructor</p></span>
                             </h1>
-                            <p><a href="nuevo_taller.php"><button class="btn btn-primary" type="button">Agregar Taller</button></a></p>
+                            <p><a href="nuevo_taller.php"><button class="btn btn-primary" type="button">Agregar Taller</button></a> <a href="../../../excel/Exceltaller.php"><button class="btn btn-light" type="button">Reporte de talleres</button></a></p>
                         </div>
                     </div>
                 </div>
@@ -185,7 +185,7 @@ if (isset($_GET['delete_id'])) { //id del taller
                                                         <div class="item-thumb"> <a> <img src="../../../images/talleres/<?php echo $row->imagen_taller; ?>" alt=""> </a> </div>
                                                         <div class="info">
                                                             <h3 class="title"> <a><?php echo $row->nombre_taller; ?></a> </h3>
-                                                            <p>Instructor: <?php echo $row->nombre_instructor . ' ' . $row->apellido_instructor ?></p>
+                                                            <p>Responsable: <?php echo $row->nombre_instructor . ' ' . $row->apellido_instructor ?></p>
                                                             <div class="desc display-flex">
                                                                 <div class="comments-students"> <a class="comments"><i class="fas fa-user-graduate"></i> <?php echo $contador['cont']; ?> alumnos de <b><?php echo $row->cupo_taller; ?></b></a>
                                                                 </div>
@@ -204,14 +204,14 @@ if (isset($_GET['delete_id'])) { //id del taller
                                                             <div class="desc display-flex">
                                                                 <form action="taller.php" method="GET">
                                                                     <input type="hidden" name="id" value="<?php echo $row->id_taller; ?>">
-                                                                    <button name="editar">Editar</button>
+                                                                    <button  class="btn btn-warning btn-sm mb1 black bg-yellow"  name="editar">Editar</button>
                                                                 </form>
 
-                                                                <button Onclick="confirmarRegistro<?php echo $row->id_taller; ?>();">Eliminar</button>
+                                                                <button  class="btn btn-danger btn-sm mb1 bg-red " Onclick="confirmarRegistro<?php echo $row->id_taller; ?>();">Eliminar</button>
 
                                                                 <form action="lista_alumnos.php" method="POST">
                                                                     <input type="hidden" name="lista_taller" value="<?php echo $row->id_taller; ?>">
-                                                                    <button>Ver lista</button>
+                                                                    <button class="btn btn-primary  btn-sm  mb1 bg-blue" >Ver lista</button>
                                                                 </form>
                                                             </div>
                                                             <script type="text/javascript">

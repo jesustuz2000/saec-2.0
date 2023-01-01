@@ -90,7 +90,7 @@ if ($_GET['carrera'] == !null) {
                         <a href="index.php" title="Vovler al inicio"><i class='fas fa-home icon'></i></a>
                             <a href="" class="active">Login</a><a href="registro.php?carrera=<?php echo $id; ?>">Registrarme</a><a href="olvidopass.php">Olvidé contraseña</a>
                         </div>
-                        <form role="form" name="login" action="verificar.php" method="post">
+                        <form role="form" name="login" action="verificar.php" action="SISTEMA_ENCUESTAS/validacion.php" method="post">
                             <input type="hidden" name="c" value="<?php echo $id; ?>" require>
                             <input class="form-control" type="text" name="usuario" placeholder="Correo Institucional" maxlength="" required>
 
@@ -103,6 +103,9 @@ if ($_GET['carrera'] == !null) {
                             
                                 
                             </form>
+
+
+                            
                     </div>
                 </div>
             </div>

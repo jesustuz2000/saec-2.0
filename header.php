@@ -90,7 +90,6 @@ while ($row = $conrConferencias->fetch(PDO::FETCH_OBJ)) {
                                         <a href="conferencias.php">Conferencias</a>
                                     </li>';
                                     }
-                                    
                                     ?>
                                     <li class="menu-item curent-menu-item">
                                         <a href="avisos.php">Avisos</a>
@@ -99,9 +98,11 @@ while ($row = $conrConferencias->fetch(PDO::FETCH_OBJ)) {
                                         <a href="perfil.php">Perfil</a>
                                     </li>
                                     <li class="menu-item curent-menu-item">
+                                        <a href="SISTEMA_ENCUESTAS/usuario/index.php">Encuesta</a>
+                                    </li>
+                                    <li class="menu-item curent-menu-item">
                                         <a href="logout.php">Cerrar</a>
                                     </li>
-
                                 </ul>
                             </div>
                         </nav>
@@ -156,6 +157,9 @@ while ($row = $conrConferencias->fetch(PDO::FETCH_OBJ)) {
                         <li class="menu-item">
                             <a href="perfil.php">Perfil</a>
                         </li>
+                        <li class="menu-item">
+                                        <a href="index.php">Encuesta</a>
+                                    </li>
                         <li class="menu-item">
                             <a href="logout.php">Salir</a>
                         </li>
