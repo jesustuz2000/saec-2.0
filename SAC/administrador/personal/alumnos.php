@@ -98,7 +98,7 @@ $uid = $_SESSION["id_administrador_carrera"];
                             <a href="../../../excel/Excel.php"><button class="btn btn-light" type="button">Reporte de alumnos registrados</button></a></p>
                         
 
-                            <p><a href="registrar_alumno.php"><button class="btn btn-primary" type="button">Registrar nuevo alumno</button></a></p>
+                            <p><a href="registrar_alumno.php"><button class="btn btn-secondary" type="button">Registrar nuevo alumno</button></a></p>
 
                             <?php foreach ($datosCarrera as $row) { ?>
                                 <form method="post">
