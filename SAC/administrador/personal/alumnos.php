@@ -124,14 +124,14 @@ $uid = $_SESSION["id_administrador_carrera"];
                             $contador = $sentencia->fetch(PDO::FETCH_ASSOC);
                             extract($contador);
                             ?>
-                            <p>Total de alumnos Activados: <?php echo $contador['cont']; ?></p>
+                            <p style="color: white;">Total de alumnos Activados: <?php echo $contador['cont']; ?></p>
                             <?php
                             $sentencia = $DB_con->prepare("SELECT COUNT(*) AS cont FROM alumnos WHERE status_alumno=0 AND id_adminCarrera =:uid;");
                             $sentencia->execute(array(':uid' => $datosCarrera["id_adminCarrera"]));
                             $contador = $sentencia->fetch(PDO::FETCH_ASSOC);
                             extract($contador);
                             ?>
-                            <p>Total de alumnos No Activados: <?php echo $contador['cont']; ?></p>
+                            <p style="color: white;">Total de alumnos No Activados: <?php echo $contador['cont']; ?></p>
 
                         </div>
                     </div>
