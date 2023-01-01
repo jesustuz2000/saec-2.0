@@ -93,11 +93,11 @@ $uid = $_SESSION["id_administrador_carrera"];
                                 <span>Alumnos</span>
                             </h1>
                             <p style="color: white;">Las modificaciones se guardan automáticamente.</p>
-<<<<<<< HEAD
+
                             <p><a href="registrar_alumno.php"><button class="btn btn-success" type="button">Registrar nuevo alumno</button></a>
                             <a href="../../../excel/Excel.php"><button class="btn btn-light" type="button">Reporte de alumnos registrados</button></a></p>
                         
-=======
+
                             <p><a href="registrar_alumno.php"><button class="btn btn-primary" type="button">Registrar nuevo alumno</button></a></p>
 
                             <?php foreach ($datosCarrera as $row) { ?>
@@ -132,7 +132,7 @@ $uid = $_SESSION["id_administrador_carrera"];
                             extract($contador);
                             ?>
                             <p>Total de alumnos No Activados: <?php echo $contador['cont']; ?></p>
->>>>>>> 34748a02aed425ae884a842e1982a338db7ed436
+
                         </div>
                     </div>
                 </div>
