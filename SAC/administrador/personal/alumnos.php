@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 if (!isset($_SESSION["id_administrador_carrera"]) || $_SESSION["id_administrador_carrera"] == null) {
     print "<script>window.location='../../../index.php';</script>";
@@ -93,12 +93,7 @@ $uid = $_SESSION["id_administrador_carrera"];
                                 <span>Alumnos</span>
                             </h1>
                             <p style="color: white;">Las modificaciones se guardan automáticamente.</p>
-
-                            <p><a href="registrar_alumno.php"><button class="btn btn-success" type="button">Registrar nuevo alumno</button></a>
-                            <a href="../../../excel/Excel.php"><button class="btn btn-light" type="button">Reporte de alumnos registrados</button></a></p>
-                        
-
-                            <p><a href="registrar_alumno.php"><button class="btn btn-secondary" type="button">Registrar nuevo alumno</button></a></p>
+                            <p><a href="registrar_alumno.php"><button class="btn btn-primary" type="button">Registrar nuevo alumno</button></a></p>
 
                             <?php foreach ($datosCarrera as $row) { ?>
                                 <form method="post">
@@ -124,15 +119,14 @@ $uid = $_SESSION["id_administrador_carrera"];
                             $contador = $sentencia->fetch(PDO::FETCH_ASSOC);
                             extract($contador);
                             ?>
-                            <p style="color: white;">Total de alumnos Activados: <?php echo $contador['cont']; ?></p>
+                            <p>Total de alumnos Activados: <?php echo $contador['cont']; ?></p>
                             <?php
                             $sentencia = $DB_con->prepare("SELECT COUNT(*) AS cont FROM alumnos WHERE status_alumno=0 AND id_adminCarrera =:uid;");
                             $sentencia->execute(array(':uid' => $datosCarrera["id_adminCarrera"]));
                             $contador = $sentencia->fetch(PDO::FETCH_ASSOC);
                             extract($contador);
                             ?>
-                            <p style="color: white;">Total de alumnos No Activados: <?php echo $contador['cont']; ?></p>
-
+                            <p>Total de alumnos No Activados: <?php echo $contador['cont']; ?></p>
                         </div>
                     </div>
                 </div>
@@ -146,7 +140,6 @@ $uid = $_SESSION["id_administrador_carrera"];
                             </div>
                         </div>
                     </div>
-                    
             </main>
             <footer class="footer mt-auto footer-light">
                 <div class="container-fluid">
