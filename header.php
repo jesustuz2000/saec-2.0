@@ -90,10 +90,6 @@ while ($row = $conrConferencias->fetch(PDO::FETCH_OBJ)) {
                                         <a href="conferencias.php">Conferencias</a>
                                     </li>';
                                     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 34748a02aed425ae884a842e1982a338db7ed436
                                     ?>
                                     <li class="menu-item curent-menu-item">
                                         <a href="avisos.php">Avisos</a>
